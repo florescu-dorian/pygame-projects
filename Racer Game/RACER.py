@@ -119,6 +119,7 @@ x = WIDTH
 y = HEIGHT
 x_change = 0
 car_speed = 0
+key_pressed = False
 
 while not game_over:
 
@@ -127,7 +128,7 @@ while not game_over:
             sys.exit()
 
         if event.type == pygame.KEYDOWN:
-
+            key_pressed = True
             x = RACER_pos[0]
             y = RACER_pos[1]
 
@@ -148,6 +149,8 @@ while not game_over:
     screen.blit(label, (WIDTH - 1000, HEIGHT - 1000))
 
     text2 = 'Press any arrow key to spawn car!'
+    if key_pressed:
+        text2 = ''
     label = myFont2.render(text2, -1, RED)
     screen.blit(label, (WIDTH - 750, HEIGHT - 1000))
 
